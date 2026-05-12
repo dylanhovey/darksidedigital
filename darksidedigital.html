@@ -197,19 +197,162 @@ footer nav a:hover{color:var(--cyan);}
 .reveal.visible{opacity:1;transform:none;}
 
 /* ═══════════════════════════════════════════════
+   MOBILE RESPONSIVE
+═══════════════════════════════════════════════ */
+@media(max-width:768px){
+
+  /* Nav */
+  nav{padding:.85rem 1.25rem;flex-wrap:wrap;gap:.75rem;}
+  nav ul{display:none;}
+  .nav-cta{font-size:.55rem;padding:.45rem .9rem;letter-spacing:.08em;}
+  #client-login-btn{margin-right:.4rem!important;}
+
+  /* Hero */
+  .hero{
+    grid-template-columns:1fr;
+    padding:7rem 1.5rem 3rem;
+    gap:2.5rem;
+    min-height:auto;
+  }
+  h1{font-size:clamp(2rem,8vw,3rem);line-height:1.05;}
+  .hero-desc{font-size:.9rem;max-width:100%;}
+  .btn-group{flex-direction:column;align-items:flex-start;gap:1rem;}
+  .btn-primary{width:100%;text-align:center;font-size:.65rem;padding:.85rem 1.5rem;}
+  .btn-ghost{font-size:.65rem;}
+  .hero-right{display:none;}
+
+  /* Stats */
+  .stats-bar{
+    padding:1.25rem 1.5rem;
+    flex-wrap:wrap;gap:1rem;
+    justify-content:center;
+  }
+  .stat-divider{display:none;}
+  .stat-item{width:calc(50% - .5rem);text-align:center;}
+  .stat-num{font-size:1.8rem;}
+  .stat-label{font-size:.7rem;}
+
+  /* Sections */
+  .sec{padding:3.5rem 1.5rem;}
+  .sec-full{padding:3.5rem 1.5rem;}
+  .sec-header{flex-direction:column;align-items:flex-start;gap:.5rem;margin-bottom:2rem;}
+  h2{font-size:clamp(1.4rem,6vw,2rem);}
+  .sec-num{font-size:.52rem;}
+
+  /* Services */
+  .services-grid{grid-template-columns:1fr;}
+  .service-card{
+    border-right:none;
+    border-bottom:1px solid var(--border);
+    clip-path:none;
+    padding:1.75rem;
+  }
+  .service-card:last-child{border-bottom:none;}
+
+  /* About */
+  .about-intro{font-size:.9rem;margin-bottom:2rem;}
+  .founders-grid{grid-template-columns:1fr;}
+  .founder-card{clip-path:none;padding:1.75rem;}
+  .founder-name{font-size:.95rem;}
+  .founder-bio{font-size:.82rem;}
+
+  /* Portfolio */
+  .portfolio-grid{grid-template-columns:1fr;}
+  .port-card{clip-path:none;}
+
+  /* Process */
+  .process-steps{grid-template-columns:1fr 1fr;}
+  .process-step{
+    padding:1.5rem 1rem!important;
+    border-right:none;
+    border-bottom:1px solid var(--border);
+  }
+  .process-step:nth-child(odd){border-right:1px solid var(--border);}
+  .process-step:nth-last-child(-n+2){border-bottom:none;}
+  .ps-num{font-size:2rem;}
+  .ps-title{font-size:.7rem;}
+  .ps-desc{font-size:.8rem;}
+
+  /* Pricing */
+  .pricing-grid{grid-template-columns:1fr;}
+  .price-card{clip-path:none;padding:1.75rem;}
+  .price-amount{font-size:2.4rem;}
+  .payment-toggle{width:100%;}
+  .toggle-btn{flex:1;text-align:center;}
+
+  /* Testimonial */
+  .testimonial-section{padding:3.5rem 1.5rem;}
+  blockquote{font-size:1rem;padding:0 .5rem;}
+  blockquote::before{font-size:3.5rem;left:-.5rem;}
+
+  /* CTA */
+  .cta-section{padding:3.5rem 1.5rem;}
+  .cta-section h2{font-size:clamp(1.6rem,6vw,2.4rem);}
+  .cta-sub{font-size:.85rem;}
+  .cta-section .btn-primary{font-size:.72rem;padding:1rem 1.5rem;}
+
+  /* Footer */
+  footer{
+    flex-direction:column;
+    text-align:center;
+    gap:1rem;
+    padding:1.75rem 1.5rem;
+  }
+  footer nav ul{gap:1.25rem;flex-wrap:wrap;justify-content:center;}
+
+  /* Portal */
+  .login-card{padding:1.75rem;}
+  .login-title{font-size:.95rem;}
+  .summary-grid{grid-template-columns:1fr 1fr;}
+  .two-col{grid-template-columns:1fr;}
+  .portal-body{padding:1.5rem;}
+  .portal-greeting{font-size:1.1rem;}
+  .portal-nav{padding:.75rem 1.25rem;}
+  .portal-nav-right{gap:.5rem;}
+  .client-pill{display:none;}
+  .pay-table th:nth-child(4),.pay-table td:nth-child(4){display:none;}
+  .sum-val{font-size:1.4rem;}
+}
+
+@media(max-width:480px){
+  nav{padding:.75rem 1rem;}
+  .logo{font-size:.85rem;}
+  .hero{padding:6.5rem 1.25rem 2.5rem;}
+  h1{font-size:clamp(1.7rem,9vw,2.5rem);}
+  .process-steps{grid-template-columns:1fr;}
+  .process-step{border-right:none!important;border-bottom:1px solid var(--border);}
+  .process-step:last-child{border-bottom:none;}
+  .summary-grid{grid-template-columns:1fr;}
+  .stat-item{width:100%;}
+  .eyebrow{font-size:.58rem;letter-spacing:.12em;}
+}
+
+/* ═══════════════════════════════════════════════
    CLIENT PORTAL STYLES
 ═══════════════════════════════════════════════ */
 #portal-overlay{
   position:fixed;inset:0;z-index:200;
-  background:transparent;
+  background:var(--bg);
   display:none;
   flex-direction:column;
   overflow-y:auto;
 }
 #portal-overlay.open{display:flex;}
+#portal-star-canvas{
+  position:fixed;inset:0;
+  pointer-events:none;
+  z-index:201;
+}
+#portal-dash{
+  position:relative;
+  z-index:203;
+  flex:1;
+}
 
 /* Login screen inside overlay */
 #login-screen{
+  position:relative;
+  z-index:203;
   flex:1;display:flex;align-items:center;justify-content:center;
   padding:2rem;
 }
@@ -366,7 +509,7 @@ footer nav a:hover{color:var(--cyan);}
           </div>
         </div>
       </div></div>
-      <div class="badge-float">&#9889; DEPLOY IN 14 DAYS</div>
+      <div class="badge-float">&#9889; DEPLOY IN 7 DAYS</div>
     </div>
   </div>
 </section>
@@ -770,6 +913,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 <!-- ═══════════════════ CLIENT PORTAL OVERLAY ═══════════════════ -->
 <div id="portal-overlay">
+<canvas id="portal-star-canvas"></canvas>
 
   <!-- LOGIN SCREEN -->
   <div id="login-screen">
@@ -871,6 +1015,70 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 <script>
 // ═══════════════════════════════════════════════
+//  PORTAL STAR BACKGROUND
+// ═══════════════════════════════════════════════
+(function(){
+  const pc = document.getElementById('portal-star-canvas');
+  const px = pc.getContext('2d');
+  let pStars = [], pW, pH, pRunning = false;
+
+  function pResize(){
+    pW = pc.width = window.innerWidth;
+    pH = pc.height = window.innerHeight;
+  }
+
+  function pInitStars(){
+    pStars = [];
+    for(let i=0;i<220;i++){
+      pStars.push({
+        x: Math.random()*pW,
+        y: Math.random()*pH,
+        r: Math.random()*1.1+0.2,
+        a: Math.random()*0.6+0.2,
+        twinkle: Math.random()*Math.PI*2,
+        speed: Math.random()*0.018+0.006,
+        cyan: Math.random()<0.07
+      });
+    }
+  }
+
+  function pDraw(){
+    if(!pRunning) return;
+    px.clearRect(0,0,pW,pH);
+    pStars.forEach(s=>{
+      s.twinkle += s.speed;
+      const alpha = s.a*(0.35+0.65*((Math.sin(s.twinkle)+1)/2));
+      const col = s.cyan ? '0,229,255' : '210,220,255';
+      px.beginPath();
+      px.arc(s.x, s.y, s.r, 0, Math.PI*2);
+      px.fillStyle = 'rgba('+col+','+alpha+')';
+      px.fill();
+      if(s.a > 0.7){
+        px.beginPath();
+        px.arc(s.x, s.y, s.r*2.5, 0, Math.PI*2);
+        px.fillStyle = 'rgba('+col+','+(alpha*0.08)+')';
+        px.fill();
+      }
+    });
+    requestAnimationFrame(pDraw);
+  }
+
+  window.startPortalStars = function(){
+    pRunning = true;
+    pResize();
+    pInitStars();
+    pDraw();
+  };
+  window.stopPortalStars = function(){
+    pRunning = false;
+    px.clearRect(0,0,pW,pH);
+  };
+  window.addEventListener('resize', function(){
+    if(pRunning){ pResize(); pInitStars(); }
+  });
+})();
+
+// ═══════════════════════════════════════════════
 //  CLIENT PORTAL JS
 // ═══════════════════════════════════════════════
 
@@ -933,11 +1141,13 @@ function openPortal(){
   document.getElementById('login-screen').style.display = 'flex';
   document.getElementById('portal-dash').classList.remove('active');
   document.body.style.overflow = 'hidden';
+  window.startPortalStars();
 }
 
 function closePortal(){
   document.getElementById('portal-overlay').classList.remove('open');
   document.body.style.overflow = '';
+  window.stopPortalStars();
 }
 
 function portalLogout(){
