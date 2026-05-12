@@ -196,6 +196,65 @@ footer nav a:hover{color:var(--cyan);}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:none;}
 
+/* RETAINER */
+.retainer-intro{font-size:.9rem;font-weight:300;line-height:1.9;color:var(--silver);max-width:640px;margin-bottom:2.5rem;letter-spacing:.02em;}
+.retainer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:3.5rem;}
+.retainer-card{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:4px;padding:2rem;
+  display:flex;flex-direction:column;
+  transition:transform .2s,border-color .2s,box-shadow .2s;
+  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%);
+}
+.retainer-card:hover{transform:translateY(-4px);border-color:rgba(0,229,255,.25);box-shadow:0 0 24px rgba(0,229,255,.05);}
+.retainer-card.featured-retainer{border-color:var(--cyan);box-shadow:0 0 28px rgba(0,229,255,.1);}
+.retainer-icon{font-size:1.4rem;margin-bottom:.75rem;opacity:.5;}
+.retainer-tier{font-family:'Orbitron',sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--silver);margin-bottom:.5rem;}
+.retainer-price{font-family:'Orbitron',sans-serif;font-size:2.4rem;font-weight:900;line-height:1;letter-spacing:-.01em;margin-bottom:1.5rem;color:var(--cyan);text-shadow:0 0 16px var(--cyan-glow);}
+.retainer-price span{font-size:1rem;font-weight:400;color:var(--silver);letter-spacing:.02em;}
+.featured-retainer .price-btn{background:var(--cyan);border-color:var(--cyan);color:var(--bg);}
+.featured-retainer .price-btn:hover{background:#00c8e0;border-color:#00c8e0;}
+
+/* PORTAL CALLOUT */
+.portal-callout{
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;
+  background:var(--panel);
+  border:1px solid rgba(0,229,255,.25);
+  border-radius:4px;padding:1.75rem 2rem;
+  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%);
+  position:relative;overflow:hidden;
+}
+.portal-callout::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,var(--cyan),rgba(0,229,255,.2),transparent);
+}
+.portal-callout-left{display:flex;align-items:center;gap:1.25rem;}
+.portal-callout-icon{flex-shrink:0;opacity:.8;}
+.portal-callout-title{
+  font-family:'Orbitron',sans-serif;font-size:.65rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.12em;color:var(--cyan);
+  margin-bottom:.4rem;text-shadow:0 0 10px var(--cyan-glow);
+}
+.portal-callout-desc{font-size:.82rem;font-weight:300;line-height:1.75;color:var(--silver);max-width:600px;}
+.portal-callout-btn{
+  flex-shrink:0;
+  font-family:'Orbitron',sans-serif;font-size:.62rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.12em;
+  padding:.75rem 1.4rem;
+  border:1px solid var(--cyan);border-radius:2px;
+  color:var(--cyan);background:rgba(0,229,255,.06);
+  text-decoration:none;white-space:nowrap;
+  transition:background .2s,box-shadow .2s;
+}
+.portal-callout-btn:hover{background:rgba(0,229,255,.14);box-shadow:0 0 16px var(--cyan-glow);}
+@media(max-width:768px){
+  .portal-callout{flex-direction:column;align-items:flex-start;}
+  .portal-callout-left{flex-direction:column;align-items:flex-start;gap:.75rem;}
+  .portal-callout-btn{width:100%;text-align:center;}
+  .retainer-grid{grid-template-columns:1fr;}
+  .retainer-card{clip-path:none;}
+}
+
 /* ═══════════════════════════════════════════════
    MOBILE RESPONSIVE
 ═══════════════════════════════════════════════ */
@@ -672,20 +731,15 @@ footer nav a:hover{color:var(--cyan);}
     <!-- STARTER -->
     <div class="price-card">
       <div class="price-tier">// Tier I &mdash; Starter</div>
-      <div class="payment-toggle">
-        <button class="toggle-btn active" onclick="setPrice(this,'$1,000','one-time payment','')">Upfront</button>
-        <button class="toggle-btn" onclick="setPrice(this,'$95','/ month for 12 months','// save $140 vs monthly')">Monthly</button>
-      </div>
       <div class="price-amount">$1,000</div>
       <div class="price-period">one-time payment</div>
-      <div class="price-save">&nbsp;</div>
       <ul class="price-features">
         <li><span class="check">&#9658;</span> Up to 5 pages</li>
         <li><span class="check">&#9658;</span> Mobile-responsive design</li>
         <li><span class="check">&#9658;</span> Contact form</li>
         <li><span class="check">&#9658;</span> Google Maps integration</li>
         <li><span class="check">&#9658;</span> 2 revision rounds</li>
-        <li><span class="check">&#9658;</span> 30-day support</li>
+        <li><span class="check">&#9658;</span> 30-day post-launch support</li>
       </ul>
       <button class="price-btn">Initiate Mission</button>
     </div>
@@ -694,20 +748,15 @@ footer nav a:hover{color:var(--cyan);}
     <div class="price-card featured">
       <div class="price-badge">// Most Deployed</div>
       <div class="price-tier">// Tier II &mdash; Growth</div>
-      <div class="payment-toggle">
-        <button class="toggle-btn active" onclick="setPrice(this,'$2,000','one-time payment','')">Upfront</button>
-        <button class="toggle-btn" onclick="setPrice(this,'$185','/ month for 12 months','// save $220 vs monthly')">Monthly</button>
-      </div>
       <div class="price-amount">$2,000</div>
       <div class="price-period">one-time payment</div>
-      <div class="price-save">&nbsp;</div>
       <ul class="price-features">
         <li><span class="check">&#9658;</span> Up to 12 pages</li>
         <li><span class="check">&#9658;</span> Custom animations</li>
         <li><span class="check">&#9658;</span> Blog / news section</li>
         <li><span class="check">&#9658;</span> SEO optimization</li>
         <li><span class="check">&#9658;</span> Analytics dashboard</li>
-        <li><span class="check">&#9658;</span> 3 months support</li>
+        <li><span class="check">&#9658;</span> 45-day post-launch support</li>
       </ul>
       <button class="price-btn">Initiate Mission</button>
     </div>
@@ -715,24 +764,89 @@ footer nav a:hover{color:var(--cyan);}
     <!-- E-COMMERCE -->
     <div class="price-card">
       <div class="price-tier">// Tier III &mdash; E-Commerce</div>
-      <div class="payment-toggle">
-        <button class="toggle-btn active" onclick="setPrice(this,'$3,000','one-time payment','')">Upfront</button>
-        <button class="toggle-btn" onclick="setPrice(this,'$275','/ month for 12 months','// save $300 vs monthly')">Monthly</button>
-      </div>
       <div class="price-amount">$3,000</div>
       <div class="price-period">one-time payment</div>
-      <div class="price-save">&nbsp;</div>
       <ul class="price-features">
         <li><span class="check">&#9658;</span> Online store + checkout</li>
         <li><span class="check">&#9658;</span> Up to 100 products</li>
         <li><span class="check">&#9658;</span> Payment processing setup</li>
         <li><span class="check">&#9658;</span> Inventory management</li>
         <li><span class="check">&#9658;</span> Order notifications</li>
-        <li><span class="check">&#9658;</span> 6 months support</li>
+        <li><span class="check">&#9658;</span> 60-day post-launch support</li>
       </ul>
       <button class="price-btn">Initiate Mission</button>
     </div>
 
+  </div>
+
+  <!-- RETAINER -->
+  <div class="sec-header reveal" style="margin-top:4rem;">
+    <h2>Site <span class="accent">maintenance</span></h2>
+    <span class="sec-num">// Monthly Retainer</span>
+  </div>
+  <p class="retainer-intro reveal">After launch, keep your site in expert hands. Every retainer plan includes access to your personal <span style="color:var(--cyan);font-family:'Orbitron',sans-serif;font-size:.85em;">Client Portal</span> — a live dashboard showing your site traffic, visitor stats, and payment history in real time.</p>
+  <div class="retainer-grid reveal">
+
+    <div class="retainer-card">
+      <div class="retainer-icon">&#9651;</div>
+      <div class="retainer-tier">// Basic</div>
+      <div class="retainer-price">$75<span>/mo</span></div>
+      <ul class="price-features">
+        <li><span class="check">&#9658;</span> Hosting &amp; uptime monitoring</li>
+        <li><span class="check">&#9658;</span> Security updates &amp; backups</li>
+        <li><span class="check">&#9658;</span> Minor text &amp; photo updates</li>
+        <li><span class="check">&#9658;</span> Up to 1hr of changes/mo</li>
+        <li><span class="check" style="color:var(--cyan)">&#9658;</span> <span style="color:var(--cyan)">Client portal access</span></li>
+        <li><span class="check" style="color:var(--cyan)">&#9658;</span> <span style="color:var(--cyan)">Live traffic dashboard</span></li>
+      </ul>
+      <button class="price-btn">Add to package</button>
+    </div>
+
+    <div class="retainer-card featured-retainer">
+      <div class="price-badge">// Most Popular</div>
+      <div class="retainer-icon">&#9651;</div>
+      <div class="retainer-tier">// Standard</div>
+      <div class="retainer-price">$150<span>/mo</span></div>
+      <ul class="price-features">
+        <li><span class="check">&#9658;</span> Everything in Basic</li>
+        <li><span class="check">&#9658;</span> Monthly traffic report</li>
+        <li><span class="check">&#9658;</span> Up to 3hrs of updates/mo</li>
+        <li><span class="check">&#9658;</span> Google Analytics review</li>
+        <li><span class="check">&#9658;</span> Priority support</li>
+        <li><span class="check" style="color:var(--cyan)">&#9658;</span> <span style="color:var(--cyan)">Client portal + payment history</span></li>
+      </ul>
+      <button class="price-btn">Add to package</button>
+    </div>
+
+    <div class="retainer-card">
+      <div class="retainer-icon">&#9651;</div>
+      <div class="retainer-tier">// Premium</div>
+      <div class="retainer-price">$300<span>/mo</span></div>
+      <ul class="price-features">
+        <li><span class="check">&#9658;</span> Everything in Standard</li>
+        <li><span class="check">&#9658;</span> SEO optimization</li>
+        <li><span class="check">&#9658;</span> Monthly blog post</li>
+        <li><span class="check">&#9658;</span> Social media graphics</li>
+        <li><span class="check">&#9658;</span> Same-day support response</li>
+        <li><span class="check" style="color:var(--cyan)">&#9658;</span> <span style="color:var(--cyan)">Full portal + priority analytics</span></li>
+      </ul>
+      <button class="price-btn">Add to package</button>
+    </div>
+
+  </div>
+
+  <!-- PORTAL CALLOUT -->
+  <div class="portal-callout reveal">
+    <div class="portal-callout-left">
+      <div class="portal-callout-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><polygon points="14,2 26,24 2,24" fill="none" stroke="#00e5ff" stroke-width="1.5"/><polygon points="14,8 22,22 6,22" fill="rgba(0,229,255,0.12)" stroke="#00e5ff" stroke-width="1"/></svg>
+      </div>
+      <div>
+        <div class="portal-callout-title">// Client Portal — Included with every retainer</div>
+        <div class="portal-callout-desc">Log in anytime to see your site's visitor count, traffic sources, page views, session times, and a full history of your payments — all in one secure dashboard built just for you.</div>
+      </div>
+    </div>
+    <a href="#" onclick="openPortal();return false;" class="portal-callout-btn">View demo &#9658;</a>
   </div>
 </div></div>
 
